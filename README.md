@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# NIYA_STUDIO Monorepo
 
-# Run and deploy your AI Studio app
+This repository is split into:
 
-This contains everything you need to run your app locally.
+- `frontend/` — the Google AI Studio React app with Vite, Express server, and Gemini integration.
+- `backend/` — documentation and Strapi content model definitions for the backend.
 
-View your app in AI Studio: https://ai.studio/apps/3306e1b3-7f91-4dd8-874f-1bb56d8adef9
+## Run frontend locally
 
-## Run Locally
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+## Backend notes
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The `backend/` folder contains Strapi content model docs and schema JSON files. It is not a runnable Strapi project by itself.

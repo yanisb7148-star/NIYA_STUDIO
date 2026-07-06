@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricings",
+  "info": {
+    "singularName": "pricing",
+    "pluralName": "pricings",
+    "displayName": "Pricing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "curency": {
+      "type": "string"
+    },
+    "isPopular": {
+      "type": "boolean"
+    },
+    "feature": {
+      "type": "json"
+    },
+    "callToAction": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

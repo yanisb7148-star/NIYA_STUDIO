@@ -1,0 +1,80 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroTitle1": {
+      "type": "string"
+    },
+    "HeroTitle2": {
+      "type": "string"
+    },
+    "HeroDescription": {
+      "type": "string"
+    },
+    "heroPrimaryButton": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true
+    },
+    "heroSecondaryButton": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": true
+    },
+    "whyBadge": {
+      "type": "string"
+    },
+    "whyTitle1": {
+      "type": "string"
+    },
+    "whyTitle2": {
+      "type": "string"
+    },
+    "whyQuote": {
+      "type": "string"
+    },
+    "whyItems": {
+      "type": "component",
+      "component": "blocks.feature-item",
+      "repeatable": true
+    },
+    "processBadge": {
+      "type": "string"
+    },
+    "processTitle1": {
+      "type": "string"
+    },
+    "processTitle2": {
+      "type": "string"
+    },
+    "processDescription": {
+      "type": "string"
+    },
+    "processSteps": {
+      "type": "component",
+      "component": "blocks.process-step",
+      "repeatable": true
+    },
+    "techBadge": {
+      "type": "string"
+    },
+    "techTitle1": {
+      "type": "string"
+    },
+    "techTitle2": {
+      "type": "string"
+    },
+    "techDescription": {
+      "type": "string"
+    }
+  }
+}

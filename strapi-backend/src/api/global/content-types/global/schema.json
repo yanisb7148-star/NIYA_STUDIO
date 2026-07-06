@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "socialLinks": {
+      "type": "json"
+    },
+    "footerText": {
+      "type": "string"
+    }
+  }
+}

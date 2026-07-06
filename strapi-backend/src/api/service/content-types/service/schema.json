@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "ShortDescription": {
+      "type": "string"
+    },
+    "fullDescription": {
+      "type": "blocks"
+    },
+    "Icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "Features": {
+      "type": "component",
+      "component": "blocks.feature-item",
+      "repeatable": true
+    }
+  }
+}

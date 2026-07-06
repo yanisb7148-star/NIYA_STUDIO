@@ -14,6 +14,7 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import { GlowCard } from "./GlowCard";
 import { cn } from "@/src/lib/utils";
+import fetchAPI from "../lib/api";
 
 export function ServiceCards() {
   const { t, lang } = useLanguage();
@@ -78,6 +79,36 @@ export function ServiceCards() {
     }
   ];
 
+  const [remoteServices, setRemoteServices] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    async function loadRemote() {
+      try {
+        const res = await fetchAPI('/services', { sort: ['order:asc'], populate: '*' });
+        const items = Array.isArray(res?.data)
+          ? res.data.map((d: any) => ({
+              id: d.id,
+              title: d.attributes?.title || d.attributes?.name || 'Untitled',
+              desc: d.attributes?.shortDescription || d.attributes?.description || '',
+              icon: Palette,
+              tools: [],
+              color: 'glow-purple',
+              shadowColor: 'rgba(139, 92, 246, 0.2)'
+            }))
+          : null;
+        if (mounted && items) setRemoteServices(items);
+      } catch (e) {
+        // Silent fallback to local data
+        console.warn('Failed to load services from Strapi', e);
+      }
+    }
+    loadRemote();
+    return () => { mounted = false; };
+  }, []);
+
+  const displayCards = remoteServices ?? cardsData;
+
   // Coherent next/prev slider trigger
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % cardsData.length);
@@ -132,7 +163,7 @@ export function ServiceCards() {
             <div className="relative w-[310px] h-[390px] overflow-visible flex items-center justify-center">
               
               <AnimatePresence initial={false}>
-                {cardsData.map((card, idx) => {
+                {displayCards.map((card, idx) => {
                   // Calculate relational loop position index for smooth looping stack visibility
                   let offset = idx - activeIndex;
                   
@@ -245,7 +276,7 @@ export function ServiceCards() {
           <div className="flex flex-col items-center justify-center gap-4 mt-2">
             {/* Interactive bullets */}
             <div className="flex gap-2">
-              {cardsData.map((_, i) => (
+              {displayCards.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
@@ -296,7 +327,7 @@ export function ServiceCards() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {cardsData.map((card, i) => (
+            {displayCards.map((card, i) => (
               <GlowCard key={i} glowClassName={card.color} className="group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300">
                 <div className="flex flex-col gap-6 h-full p-2 md:p-0 relative overflow-hidden">
                   
