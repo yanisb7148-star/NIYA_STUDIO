@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_plans",
+  "info": {
+    "singularName": "pricing-plan",
+    "pluralName": "pricing-plans",
+    "displayName": "Pricing Plan"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR"
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    },
+    "features": {
+      "type": "json",
+      "description": "Array of strings representing features included in the plan"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

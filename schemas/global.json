@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global Settings"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true
+    },
+    "seoDescription": {
+      "type": "text"
+    },
+    "contactEmail": {
+      "type": "string"
+    },
+    "heroHeadline": {
+      "type": "string"
+    },
+    "heroSubheadline": {
+      "type": "text"
+    },
+    "socialLinks": {
+      "type": "json",
+      "description": "Object mapping network names to URLs"
+    }
+  }
+}
